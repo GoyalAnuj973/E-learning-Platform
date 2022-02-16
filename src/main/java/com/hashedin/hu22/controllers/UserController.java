@@ -23,5 +23,10 @@ public class UserController {
         return "User has been added";
     }
 
+    @PostMapping(value = "user/updateUser")
+    public User updateUser(@RequestBody User user) {
+        User user2 = userService.updateUser(user);
+        return user2;
+    }
 
 }

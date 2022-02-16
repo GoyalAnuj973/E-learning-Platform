@@ -8,6 +8,7 @@ import lombok.Setter;
 import javax.persistence.Entity;
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Getter
@@ -41,6 +42,9 @@ public class User implements Serializable {
     @OneToOne(mappedBy = "user",fetch = FetchType.EAGER)
     private Wishlist userWishlist;
 
+    @Transient
+    @OneToMany(mappedBy = "userList",fetch = FetchType.EAGER)
+    private Order order;
 
     public User(){
 

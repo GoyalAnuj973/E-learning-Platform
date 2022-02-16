@@ -18,8 +18,9 @@ public class Order implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    private List<UdemyCourses> udemyCoursesList;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "user_list")
+    private List<User> userList;
 
     public Order() {
 

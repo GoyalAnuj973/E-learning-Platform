@@ -28,4 +28,20 @@ public class UserService {
         return user;
     }
 
+    public User updateUser(User user){
+        List<User> userList = userRepository.findAll();
+        User user3 = null;
+        for (User u:userList){
+            if(u.getId().equals(user.getId())){
+                user3 = u;
+                break;
+            }
+        }
+        if(user3 == null){
+            return null;
+        }
+        userRepository.save(user);
+        return user;
+    }
+
 }
