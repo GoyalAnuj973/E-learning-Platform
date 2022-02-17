@@ -1,6 +1,8 @@
 package com.hashedin.hu22.service;
 
 import com.hashedin.hu22.entities.User;
+import com.hashedin.hu22.entities.UserCart;
+import com.hashedin.hu22.repositories.UserCartRepository;
 import com.hashedin.hu22.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,6 +14,9 @@ public class UserService {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private UserCartRepository userCartRepository;
 
     public User addUser(User user) {
         userRepository.save(user);
@@ -25,6 +30,8 @@ public class UserService {
         if (flag==false){
             return null;
         }
+//        UserCart userCart = new UserCart(user);
+//        userCartRepository.save(userCart);
         return user;
     }
 

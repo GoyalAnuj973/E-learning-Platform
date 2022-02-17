@@ -2,11 +2,11 @@ package com.hashedin.hu22.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -19,11 +19,18 @@ public class UserCart implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne(fetch = FetchType.EAGER)
-    private User user;
+//    @OneToOne(fetch = FetchType.EAGER)
+//    private User user;
+
+    @OneToMany(mappedBy = "userCart",fetch = FetchType.EAGER)
+    private Set<CartCourses> cartCourses;
 
     //@OneToMany(cascade = CascadeType.ALL,mappedBy = "",fetch = FetchType.EAGER)
     private String courseName;
+
+//    public UserCart(User user){
+//        this.user = user;
+//    }
 
     public UserCart() {
 

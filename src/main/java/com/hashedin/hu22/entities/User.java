@@ -53,7 +53,7 @@ public class User implements Serializable {
 
     @Transient
     @OneToOne(mappedBy = "user",fetch = FetchType.EAGER)
-    private Cart cart;
+    private UserCart userCart;
 
 
     public User(){

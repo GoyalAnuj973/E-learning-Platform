@@ -11,13 +11,24 @@ import java.io.Serializable;
 @Getter
 @Setter
 @AllArgsConstructor
-@Table(name= "cart")
-public class Cart implements Serializable {
+@Table(name= "cart_courses")
+public class CartCourses implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    public Cart() {
+    @ManyToOne
+    @JoinColumn(name = "udemy_courses_id")
+    private UdemyCourses udemyCourses;
+
+    @ManyToOne
+    @JoinColumn(name = "user_cart_id")
+    private UserCart userCart;
+
+    
+
+    public CartCourses(){
 
     }
 }

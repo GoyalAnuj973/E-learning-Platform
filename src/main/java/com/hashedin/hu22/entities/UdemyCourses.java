@@ -35,6 +35,9 @@ public class UdemyCourses implements Serializable {
 
     private Double rating;
 
+    @Transient
+    @OneToMany(mappedBy = "udemyCourses",fetch = FetchType.EAGER)
+    private Set<CartCourses> cartCourses;
 
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "udemyCourses",fetch = FetchType.EAGER)
     private Set<UserCourses> userCoursesSet;
