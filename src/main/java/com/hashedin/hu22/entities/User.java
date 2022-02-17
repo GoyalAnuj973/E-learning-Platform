@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -42,9 +43,16 @@ public class User implements Serializable {
     @OneToOne(mappedBy = "user",fetch = FetchType.EAGER)
     private Wishlist userWishlist;
 
-    @Transient
-    @OneToMany(mappedBy = "userList",fetch = FetchType.EAGER)
-    private Order order;
+//    @Transient
+//    @OneToMany(mappedBy = "userList",fetch = FetchType.EAGER)
+//    private Order order;
+
+
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "user",fetch = FetchType.EAGER)
+    private Set<UserCourses> userCoursesSet;
+
+
+
 
     public User(){
 

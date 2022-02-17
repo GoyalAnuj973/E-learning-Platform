@@ -4,25 +4,28 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.List;
+
 @Entity
 @Getter
 @Setter
 @AllArgsConstructor
-@Table(name= "order")
-public class Order implements Serializable {
+@Table(name= "user_courses")
+public class UserCourses implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-//    @ManyToOne(fetch = FetchType.EAGER)
-//    @JoinColumn(name = "user_list")
-//    private List<User> userList;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
-    public Order() {
+    @ManyToOne
+    @JoinColumn(name = "udemy_courses_id")
+    private UdemyCourses udemyCourses;
+
+    public UserCourses(){
 
     }
 }
