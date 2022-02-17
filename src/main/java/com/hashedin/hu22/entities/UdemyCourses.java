@@ -6,6 +6,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -32,7 +33,7 @@ public class UdemyCourses implements Serializable {
 
     private String reviews;
 
-    private double rating;
+    private Double rating;
 
 
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "udemyCourses",fetch = FetchType.EAGER)

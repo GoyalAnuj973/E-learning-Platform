@@ -19,6 +19,10 @@ public class UserCart implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @OneToOne(fetch = FetchType.EAGER)
+    private User user;
+
+    //@OneToMany(cascade = CascadeType.ALL,mappedBy = "",fetch = FetchType.EAGER)
     private String courseName;
 
     public UserCart() {

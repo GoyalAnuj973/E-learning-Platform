@@ -5,6 +5,8 @@ import com.hashedin.hu22.service.UserCartService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 public class UserCartController {
 
@@ -20,6 +22,13 @@ public class UserCartController {
     @DeleteMapping(value = "userCart/deleteCourses/{courseName}")
     public String deleteCourses(@PathVariable String courseName){
         String courseName1 = userCartService.deleteCourses(courseName);
-        return courseName;
+        return courseName1;
     }
+
+    @PostMapping(value = "userCart/getCartCourses")
+    public List<UserCart> getCartCourses(UserCart userCart){
+        List<UserCart> userCartList = userCartService.getCartCourses(userCart);
+        return userCartList;
+    }
+
 }

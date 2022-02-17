@@ -51,7 +51,9 @@ public class User implements Serializable {
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "user",fetch = FetchType.EAGER)
     private Set<UserCourses> userCoursesSet;
 
-
+    @Transient
+    @OneToOne(mappedBy = "user",fetch = FetchType.EAGER)
+    private Cart cart;
 
 
     public User(){
